@@ -40,9 +40,17 @@ app.post(
     { name: "passport", maxCount: 1 },
   ]),
   (req, res) => {
+    //Note: "upload.fields"; is what helps you to specify any fields that multer will upload.
+
+    //This gives you the path to the field for photo
     var photo_path = req.files.photo[0].path;
+
+    //This will give you path for the document
     var document_path = req.files.passport[0].path;
 
+    //Later you can put those variables into the db as you saving
+
+    //Here am just trying to log the data for the variables
     console.log("*** Photo: ", photo_path, " ---: Document: ", document_path);
     res.redirect("/");
   }
